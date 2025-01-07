@@ -1,0 +1,67 @@
+<html>
+    <head></head>
+    <body>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                display: flex;
+                
+            }
+            .box,#box2{
+                width:150px;
+                height: 100px;
+                flex-wrap: nowrap;
+                text-align: center;
+                align-content: center;
+                justify-content: space-evenly;
+                margin: 2%;
+                background-color: rgb(106, 176, 223);
+            }
+            #box2{
+                display: block;
+                text-align: center;
+               
+            }
+        </style>
+            <div class="container">
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+                <div class="box">250ml</div>
+            </div>
+            <div id="box2">0</div>
+
+        <script>
+
+           let water=document.getElementsByClassName('box');
+           let largee=document.getElementById('box2');
+           let percentage=(1/water.length)*100;
+           water=Array.from(water);
+        //    console.log(water)
+           let total=0;
+
+           for(let i=0;i<water.length;i++){
+            water[i].addEventListener('click',()=>{
+                if(water[i].innerText==='250ml')
+                {
+                water[i].innerText='empty';
+                total+=percentage;  
+                }
+                else if(water[i].innerText==='empty') {
+                water[i].innerText= '250ml';
+                total-=percentage;
+           }
+           largee.innerText=total+'%';
+        })
+    }
+            
+        </script>
+    </body>
+</html>

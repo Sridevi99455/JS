@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Management</title>
+    <style>
+        .selected {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <ul id="itemList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <p>Selected items: <span id="selectedCount">0</span></p>
+
+    <script>
+        const itemList = document.getElementById('itemList');
+        const selectedCount = document.getElementById('selectedCount');
+        let selectedItems = 0;
+        const maxSelection = 5;
+
+        itemList.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                if (event.target.classList.contains('selected')) {
+                    event.target.classList.remove('selected');
+                    selectedItems--;
+                } else {
+                    if (selectedItems < maxSelection) {
+                        event.target.classList.add('selected');
+                        selectedItems++;
+                    }
+                }
+                selectedCount.innerText = selectedItems;
+            }
+        });
+    </script>
+</body>
+</html>

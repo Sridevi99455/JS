@@ -1,0 +1,62 @@
+<html>
+    <head></head>
+    <body>
+        <style>
+            #counter{
+                display: block;
+                text-align:center;
+                font-size:xx-large;
+                padding: 3%;
+                
+            }
+            div {
+                margin-top: 0%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 5%;
+        
+            }
+        button{
+            font-size: large;
+            background-color: rgb(216, 228, 228);
+            border-radius: 2%;
+            transition: background-color 0.25s;
+        }
+        button:hover{
+            background-color: aqua;
+        }
+        </style>
+        <label id="counter">0</label>
+        <div>
+        <button id="incbtn">Increase</button>
+        <button id="resetbtn">Reset</button>
+        <button id="decbtn">Decrease</button>
+    </div>
+        <script>
+            let count=0;
+        let inc= document.getElementById('incbtn').onclick=
+        ()=>
+        {
+            if(count<10){
+            count+=1;
+            document.getElementById('counter').innerHTML=count;
+            }
+        };
+        let reset= document.getElementById('resetbtn').onclick=
+        function reset()
+        {
+            count=0;
+            document.getElementById('counter').innerHTML=count;
+        };
+        let dec= document.getElementById('decbtn').onclick=
+        ()=>
+        {
+            if(count>0){
+            count-=1;
+            document.getElementById('counter').innerHTML=count;
+            }
+        };
+        </script>
+    </body>
+    </html>

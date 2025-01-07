@@ -1,0 +1,74 @@
+<html>
+<head><title>dom navigation</title></head>
+<body>
+    <!-- parent ,children firstElementChild, lastElementChild -->
+    <ul id="fruits">
+        <li id="apple">apple</li>
+        <li id="mango">mango</li>
+        <li id="banana">banana</li>
+    </ul>
+    <ul id="veg">
+        <li id="tomato">tomato</li>
+        <li id="carrot">carrot</li>
+        <li id="beans">beans</li>
+    </ul>
+    <ul id="dessert">
+        <li id="cake">cake</li>
+        <li id="ice-cream">ice-cream</li>
+        <li id="sweets">sweets</li>
+    </ul>
+    <div id="div">    Lorem ipsum dolor sit amet consectetur adipisicing elit <span>   This is span</span>.</div>
+    <button onclick="geninnerHtml()" >innerHTML</button>
+    <button onclick="geninnerText()">innerText</button>
+    <button onclick="gentextContent()" >textContent</button>
+    <pre id="demo"></pre>
+    <script>
+        let divlo=document.getElementById('div');
+        let demo=document.getElementById('demo');
+        function geninnerHtml(){
+           demo.innerText= divlo.innerHTML;
+        }
+        function geninnerText(){
+            demo.innerText=divlo.innerText;
+        }
+        function gentextContent(){
+            demo.innerText=divlo.textContent;
+        }
+
+
+
+
+         const fruits=document.getElementById('fruits');
+         const first=fruits.firstElementChild;
+         first.style.backgroundColor="yellow"
+        
+         const ul=document.querySelectorAll('ul');
+         ul.forEach(ulele => 
+            {
+                let first1=ulele.lastElementChild;
+                first1.style.backgroundColor='red'
+            }
+         );
+         const tom=document.getElementById('tomato');
+         const nextsib=tom.nextElementSibling;
+         nextsib.style.backgroundColor='green'
+    
+         const vegs=document.getElementById('veg');
+         const nextsib1=vegs.previousElementSibling;
+         nextsib1.style.backgroundColor='purple';
+    
+        const ele1=document.getElementById('cake');
+        const parent=ele1.parentElement;
+        parent.style.backgroundColor='blue';
+    
+
+         const children=veg.children;
+          const chirr=Array.from(children);
+          chirr.forEach(ele =>
+          ele.style.backgroundColor="brown"
+        )
+        chirr[0].style.backgroundColor='pink';
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Random color generator</title>
+    </head>
+    <body>
+        <style>
+            h1{
+                text-align: center;
+            }
+            #colorbox{
+                height: 40%;
+                width:50%;
+                border:2px solid black ;
+                align-content: center;
+                margin: 0 auto;
+            }
+
+            #colorcode,button{
+                position: relative;
+                left: 40%;
+                padding: 2%;
+                margin: 0 auto;
+
+            }
+            #copy,#generate{
+               cursor: pointer;
+               margin:0 auto;
+               margin-bottom: 2%;
+                padding: 2% ;
+                background-color: rgb(21, 141, 43);
+                border: none;
+                color: white;
+            }
+            #copy:hover{
+                background-color: tomato;
+            }
+            #generate:hover{
+                background-color: rgb(7, 2, 16);
+                color: white;
+            }
+        </style>
+        <div>
+            <h1>Generate Random colors</h1>
+        <div id="colorbox"></div>
+        <p id="colorcode"></p>
+        <button id="generate">Generate color</button><br>
+        <button id="copy"> copy Code Button</button>
+    </div>
+    <script>
+
+        let colorbox=document.getElementById('colorbox');
+        let colorcode=document.getElementById('colorcode');
+        let generate=document.getElementById('generate');
+        let copycode=document.getElementById('copy')
+        function updateColor(){
+           let r= Math.floor(Math.random()*255);
+           let g= Math.floor(Math.random()*255);
+           let b= Math.floor(Math.random()*255);
+            
+           return `rgb(${r},${g},${b})`;
+        }
+
+        function generateColor(){
+            let color=updateColor();
+            colorcode.innerText=color;
+            colorbox.style.backgroundColor=color
+            console.log(color);
+        }
+
+        function copyCode(){
+            let inputTag=document.createElement('input');
+            document.body.append(inputTag);
+            inputTag.value=colorcode.innerText;
+
+            inputTag.select();
+            document.execCommand('copy');
+            document.body.removeChild(inputTag);
+            alert("color code copied to clipboard")
+        }
+        copycode.addEventListener('click',copyCode)
+        generate.addEventListener('click',generateColor)
+
+        
+    </script>
+    </body>
+    </html>

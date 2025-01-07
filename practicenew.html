@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <style>
+             .div{
+                background-color: red;
+                height: 100px;
+                width: 100px;
+                display: block;
+                visibility: hidden;
+                /* none hiiden inline inline-block block */
+            }
+            span{
+                background-color: aqua;
+                height: 100px;
+                width: 100px;
+                display:none;
+                /* visibility: hidden; */
+            }
+            #box ,#box1,#box2{
+                margin-bottom: 1%;
+                display: block;
+                height: 150px;
+                width: 150px;
+                background-color: rgb(4, 4, 64);
+                color: white;
+                font-size: 2.5em;
+                text-align: center;
+                align-content: center;
+                
+            }#box2{
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+            #btn{
+                width: 200px;
+                margin: 10px 0 10px 0;
+
+                font-size: 2em;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+
+    <div id="div">div</div>
+        <span>span</span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus reiciendis numquam 
+        quam assumenda mollitia perferendis, vitae omnis saepe repudiandae! Facilis 
+        sapiente ex minima provident reiciendis unde quas illo cum voluptatem.
+        <br><br><hr>
+        <form >
+            <label for="cbc">CHOOSE</label>
+            <input type="checkbox" id="cbc" onclick="checkMe()">
+            <p id="txt" style="display: none;">Hii ramu here!!!</p>
+        </form>
+        <hr>
+
+        <div id="box"> Click me😊</div>
+        <button id="btn">Click me</button>
+        
+        <div id="box1"> key event</div>
+        <div>
+        <div id="box2"> 😊</div>
+    </div>
+<script>
+        let arr=['ramu', 'hemu','dhanu'];
+
+        let inc=arr.includes('ramu');
+        console.log('ramu='+inc);
+        let inc1=arr.some(item=> item='ramu')
+        console.log('ramu='+inc1);
+
+       function checkMe(){
+        let cb=document.getElementById('cbc');
+        let text=document.getElementById('txt');
+        if(cb.checked==true){
+            text.style.display="block";
+        }
+        else{
+            text.style.display='none';
+        }
+    }
+
+        function checkValue(value,array){
+            let status='donot exists';
+            for(let i=0;i<array.length;i++){
+                if(value===array[i]){
+                    status="exists";
+                    break;
+                }
+            }
+            return status;
+        }
+        console.log('status ;:'+checkValue('dhanu',arr));
+
+       
+
+
+
+
+        let student={
+            name:"john",
+            age:20
+        }
+        console.log( 'name' in student );
+        console.log(student.hasOwnProperty('name'));
+        let hasKey='name' in student ;
+        if(hasKey){
+            console.log("key exists")
+        }
+        else{
+            console.log("key doesnt exists")
+        }
+
+
+
+        let box=document.getElementById('box');
+        let btn=document.getElementById('btn');
+
+        function over(event){
+            box.style.backgroundColor='yellow';
+            box.textContent="overed me";
+        }
+
+        btn.addEventListener('click', event => {
+            box.style.backgroundColor='red';
+            // event.target.textContent='Ouchh😯';
+            box.textContent='Ouchh😯';
+        });
+        btn.addEventListener('mouseover',over);
+        btn.addEventListener('mouseout', function(event){
+            box.style.backgroundColor='green';
+            box.textContent='mouse out';
+        });
+
+        let box1=document.getElementById('box1');
+        document.addEventListener('keydown', event =>{
+            box1.style.backgroundColor="tomato";
+            box1.innerText='keydown';
+            // console.log(event.key)
+        })
+        document.addEventListener('keyup',event => {
+            if(event.key=='Enter'){
+            box1.style.backgroundColor='yellow';
+            box1.textContent='keyup';
+
+            }
+        })
+        let box2=document.getElementById('box2');
+        const moveamt= 10;
+        let x=0;
+        let y=0;
+
+        document.addEventListener("keydown",event=>{
+
+            if(event.key.startsWith("Arrow")){
+                // event.preventDefault();
+
+                switch(event.key){
+                    case "ArrowUp":
+                        y-=moveamt;
+                        break;
+                    case "ArrowDown":
+                        y+=moveamt;
+                        break;
+                    case "ArrowLeft":
+                        x-=moveamt;
+                        break;
+                    case "ArrowRight":
+                        x+=moveamt;
+                        break;
+                    }
+                    box2.style.top =  `${y}px`;
+                    box2.style.left = `${x}px`;
+                    
+                }
+
+        });
+        
+    </script>
+    </body>
+</html>

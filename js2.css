@@ -1,0 +1,17 @@
+.main{
+    width: 100%;
+   
+}
+.password{
+    width:20%;
+    margin: auto;
+    padding: 10%;
+    font-size: large;
+}
+ input, button, label{
+    margin: 3%;
+    padding: 2%;
+}
+input{
+    padding: 5%
+}
