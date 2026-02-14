@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            div{
+                display: flex;
+                align-content: center;
+                justify-content: space-evenly; 
+            }
+         button{
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div>
+        <button id="start">Start</button>
+        <button id="end">End</button>
+    </div>
+        <form >
+            <fieldset>
+            <p id="quote"></p>
+            <legend> Quote of the Day</legend>
+        </fieldset>
+        </form>
+    </body>
+    <script>
+        let isValid;
+        
+        function generateQuote(){
+            let length=Math.floor(Math.random()*20); 
+            let str='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let newstr=''; 
+
+            for(let i=0;i<length;i++){
+            let random=Math.floor(Math.random()*str.length);
+            newstr+=str[random];
+            }
+            document.getElementById('quote').innerText=newstr;
+        }
+        document.getElementById('start').addEventListener('click',()=>{
+         if(!isValid){
+            isValid=setInterval(generateQuote,1000)
+        }
+    });
+    document.getElementById('end').addEventListener('click',()=>{
+        clearInterval(isValid);
+        isValid=null;
+    })
+    </script>
+</html>

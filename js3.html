@@ -1,0 +1,82 @@
+<html>
+    <head><title>Digital clock</title></head>
+    <body>
+        <style>
+            .main{
+                margin:0;
+                padding: 0;
+            }
+            #time{
+                width: 100%;
+                text-align: center;
+            }
+            .clock{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                
+            }
+            #hr, #min,  #sec,#ap{
+                background-color: black;
+                margin: 2%;
+                height: 100px;
+                width:60px;
+                color: white;
+                font-size: xx-large;
+                font-weight: bolder;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .clock .sam{
+                 font-weight: bolder;
+                 font-size: xx-large;
+            }
+        </style>
+        <div class="main">
+        <div id="time">
+            <h1>DIGITAL CLOCK</h1>
+        </div>
+        <div class="clock">
+            <div id="hr"></div>
+            <div class="sam">:</div>
+            <div id="min"> </div>
+            <div class="sam">:</div>  
+            <div id="sec"> </div> 
+            <div class="sam">:</div>  
+            <div id="ap"> </div> 
+        </div> 
+        
+    </div>
+    <script>
+        let hr=document.getElementById('hr');
+        let min=document.getElementById('min');
+        let sec=document.getElementById('sec');
+        function display(){
+            let time=new Date();
+
+            let hrs=time.getHours();
+            let mins=time.getMinutes();
+            let second=time.getSeconds();
+            let ampm=hrs>=12 ? 'pm' : 'am';
+            hrs=hrs%12;
+            hrs=hrs?hrs:0;
+            mins= min<10 ? '0' + mins:mins;
+            second= second<10 ? '0'+second :second;
+
+            hr.innerHTML=hrs;
+            min.innerHTML=mins;
+            sec.innerHTML=second;
+            ap.innerHTML=ampm;
+
+
+        }
+        // function gf(){
+        //     console.log("gfggg");
+        // }
+        // setTimeout(gf,10000)
+        setInterval(display,1000);
+    </script>
+    </body>
+</html>

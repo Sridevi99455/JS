@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            password generator
+        </title>
+        <link rel="stylesheet" href="js2.css">
+    </head>
+    <body>
+        <div class="main">
+        <div class="password">
+            <label for="passwordlength">Password Length</label><br>
+            <input type="number" id="passwordlength"><br>
+            <input type="checkbox" id="uppercase" name="">UpperCase <br>
+            <input type="checkbox"  id="lowercase">Lowercase <br>
+            <input type="checkbox"  id="number">Number <br>
+            <input type="checkbox"  id="symbol">Symbol <br>
+            <button onclick="generatePassword()">Generate Password</button><br>
+            <input type="text" id="password" readonly>
+        </div>
+    </div>
+    <script src="js2.js"></script>
+    </body>
+</html>

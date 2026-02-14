@@ -1,0 +1,39 @@
+<html>
+    <head><title>Button Toggle</title>
+    </head>
+    <body>
+        <style>
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .on{
+                background-color: green;
+            }
+        </style>
+        <div>
+            <button class="button">OFF</button>
+            <button class="button">OFF</button>
+            <button class="button">OFF</button>
+            <button class="button">OFF</button>
+            <button class="button">OFF</button>
+        </div>
+        <script>
+            let buttons=document.querySelectorAll('button');
+            
+            buttons.forEach(btn=>
+                btn.addEventListener('click', ()=>{
+                buttons.forEach(btn=> btn.classList.remove('on'));
+                btn.classList.add('on');
+                buttons.forEach(btn => btn.innerText='OFF');
+                btn.innerText="ON";
+            })
+            )
+               
+
+                
+           
+        </script>
+    </body>
+    </html>

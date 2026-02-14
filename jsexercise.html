@@ -1,0 +1,177 @@
+<html>
+  <head></head>
+  <body>
+    <script>
+      function check100(num1, num2) {
+        let sum = num1 + num2;
+        if (num1 === 100 || num2 === 100 || sum === 100) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      let check = (a, b) => a === 100 || b === 100 || a + b === 100;
+      console.log(check100(0, 100));
+      console.log(check(10, 90));
+      //
+      function fileexten(str) {
+        return str.slice(str.lastIndexOf("."));
+      }
+      console.log(fileexten("index.html"));
+      console.log(fileexten("index.config.js"));
+      //
+      const moveChars = (str) =>
+        str
+          .split("")
+          .map((char) => String.fromCharCode(char.charCodeAt(0) + 1))
+          .join("");
+
+      console.log(moveChars("abcd"));
+      let dates = new Date();
+      console.log(dates.toLocaleDateString());
+      console.log(dates.toLocaleTimeString());
+      const date = dates.getDate();
+      const month = dates.getMonth();
+      const year = dates.getFullYear();
+      console.log(`${date}-${month + 1}-${year}`);
+
+      let str1 = " heloo";
+      function search(str1) {
+        if (str1.startsWith("New!")) {
+          return str1;
+        } else {
+          return "New!" + str1;
+        }
+      }
+      const addnew = (str) => (str.indexOf("New!") === 0 ? str : `New!${str}`);
+      console.log(search(str1));
+      console.log(addnew("hih"));
+      //
+      let str2 = (str) => {
+        return str.slice(0, 3) + str.slice(-3);
+      };
+      let str22 = (str) =>
+        str.length < 3 ? str : str.slice(0, 3) + str.slice(-3);
+      let string = "sriiirrramu";
+      console.log(str2(string));
+      console.log(str22("abcdefgh"));
+      console.log(str22("ab"));
+      console.log(str22("abx"));
+
+      let str3 = (str) => console.log(str.slice(0, str.length / 2));
+      str3("sridevi");
+      str3("sri");
+      str3("sridev");
+      str3("sridevii");
+      //
+      str4 = (s1, s2) => s1.slice(1, s1.length) + s2.slice(1, s2.length);
+
+      console.log(str4("srii", "ramuuep; "));
+
+      //
+      let ex1 = (v1, v2) => {
+        let dif1 = Math.abs(v1 - 100);
+        let dif2 = Math.abs(v2 - 100);
+        return dif1 > dif2 ? v2 : v1;
+      };
+      console.log(ex1(190, 130));
+
+      //
+      let str5 = (char, str) => {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (char === str[i]) {
+            count++;
+          }
+        }
+        if (count >= 2 && count <= 4) {
+          //  console.log(char+"="+count);
+          return true;
+        }
+        return false;
+      };
+
+      let str55 = (char, str) =>
+        str.split("").filter((ch) => ch === char).length;
+      const contains2To4 = (char, str) =>
+        str55(char, str) >= 2 && str55(char, str) <= 4;
+
+      console.log(str5("i", "abccerdhac"));
+      console.log(contains2To4("c", "abciicerdhac"));
+
+      //
+      const a1 = (a1) =>
+        a1.forEach((element) => {
+          if (element % 2 == 0) {
+            console.log(element);
+          }
+        });
+      a1([1, 2, 3, 4, 5, 6]);
+
+      function evenarr(arr) {
+        let arrr22 = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 0) {
+            arrr22.push(arr[i]);
+          }
+        }
+        return arrr22;
+      }
+      console.log(evenarr([1, 2, 3, 5, 4]));
+
+      const evenarr1 = (arr) => arr.filter((num) => num % 2 === 0);
+      console.log(evenarr1([1, 2, 3, 4, 6, 8, 5]));
+
+      // num of even upto given num
+      const counteven = (n) => {
+        let count = 0;
+        for (let i = 1; i <= n; i++) {
+          if (i % 2 === 0) {
+            count++;
+          }
+        }
+        console.log(count);
+      };
+      counteven(10);
+
+      //chech arr is in asc order or not
+      function checkasc(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i + 1] < arr[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+      console.log(checkasc([1, 2, 3, 4]));
+
+      //even largest in arr
+      const max = (arr) => Math.max(...arr.filter((num) => num % 2 === 0));
+
+      console.log(max([1, 2, 8, 14, 15, 6]));
+      //replace 1st digit in string
+      const replacfstchar = (str) => str.replace(/[0-9]/, "$");
+      // /\d/
+      console.log(replacfstchar("1sdv3w132ge4iu"));
+
+      //
+      const leap=(num)=> num%4===0 &&num%100===0 &&num%400!==0;
+
+      console.log(leap(1900));
+
+      // compare 2 objects (conatins 1st property same)
+      const obj1={a:1,b:2,c:3};
+      const obj3={a:1,b:2,c:3};
+      const obj2={a:1,d:2,e:3};
+       const comp1=(a,b) => {
+        // console.log(Object.keys(a));
+        // console.log(Object.keys(b));
+         return Object.keys(a).every(key => b[key])//key in b
+    }
+    
+    console.log(comp1(obj1,obj3));
+
+      
+    </script>
+  </body>
+</html>

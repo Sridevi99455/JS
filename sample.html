@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+</head>
+<body>
+    <div id="quote">Click start to generate quotes!</div>
+    <button id="start">Start</button>
+    <button id="end">End</button>
+
+    <script>
+        let intervalId;
+
+        function generateQuote() {
+            let length = Math.floor(Math.random() * 20) + 1;
+            let str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let newStr = '';
+            for (let i = 0; i < length; i++) {
+                let random = Math.floor(Math.random() * str.length);
+                newStr += str[random];
+            }
+            document.getElementById('quote').innerText = newStr;
+        }
+
+        document.getElementById('start').addEventListener('click', () => {
+            if (!intervalId) {
+                intervalId = setInterval(generateQuote, 1000);
+            }
+        });
+
+        document.getElementById('end').addEventListener('click', () => {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+    </script>
+</body>
+</html>
